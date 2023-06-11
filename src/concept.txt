@@ -1,0 +1,10 @@
+You have a 10x10 grid, your first task will be to place five ships of different sizes on your grid giving two positions (starting position and ending position in order).
+The computer does the same and the game starts.
+
+The starting player is chosen randomly.
+When it is your turn, you need to pick a position for where you are going to hit in the computer's grid.
+If you hit a ship, it is "Hit!".
+To make a ship sink, you need to hit all of his cases, and it is "Sunk SHIP_NAME!".
+And if you miss, it is "Miss!"
+
+The first to eliminate all enemy's ships win.
