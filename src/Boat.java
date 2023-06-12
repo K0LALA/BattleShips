@@ -78,7 +78,6 @@ public class Boat {
      */
     private void calculatePositions () {
         // Decode positions into 4 individuals positions
-        // Expected : 3 5 3 1
         int pos1X = (int) this.position1;
         int pos1Y = (int) Math.round((double) (this.position1 - pos1X) * 100);
         int pos2X = (int) this.position2;
@@ -96,51 +95,6 @@ public class Boat {
                 positions.add(encodedPosition);
             }
         }
-
-        /*
-        // Check in which direction the boat is
-        if (pos1X == pos2X) {
-            // The boat is vertical
-            if (pos1Y > pos2Y)
-                // The boat is facing downwards
-                for (;pos2Y <= pos1Y; pos2Y++) {
-                    // Encode the positions
-                    float encodedPosition1 = pos1X + (float) pos1Y / 100;
-                    float encodedPosition2 = pos2X + (float) pos2Y / 100;
-                    positions.add(new Vector<>(Arrays.asList(encodedPosition1, encodedPosition2)));
-                }
-            else
-                // The boat is facing upwards
-                for (int i = pos1Y; i <= pos2Y; i++) {
-                    float encodedPosition1 = i + (float) i / 100;
-                    float encodedPosition2 = pos2X + (float) pos2Y / 100;
-                    positions.add(new Vector<>(Arrays.asList(encodedPosition1, encodedPosition2)));
-                }
-        }
-        else {
-            // The boat is horizontal
-            if (pos1X > pos2X)
-                // The boat is facing rightwards
-                for (; pos2X <= pos1X; pos2X++) {
-                    float encodedPosition1 = pos1X + (float) pos1Y / 100;
-                    float encodedPosition2 = pos2X + (float) pos2Y / 100;
-                    positions.add(new Vector<>(Arrays.asList(encodedPosition1, encodedPosition2)));
-                }
-            else
-                // The boat is facing leftwards
-                for (; pos1X <= pos2X; pos1X++) {
-                    float encodedPosition1 = pos1X + (float) pos1Y / 100;
-                    float encodedPosition2 = pos2X + (float) pos2Y / 100;
-                    positions.add(new Vector<>(Arrays.asList(encodedPosition1, encodedPosition2)));
-                }
-        }*/
-    }
-
-    /**
-     * Print the positions where the boat is in the console
-     */
-    public void printPositions() {
-        positions.forEach(System.out::println);
     }
 
     public boolean isHit(float position) {
@@ -155,20 +109,7 @@ public class Boat {
         return isHit;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
     public boolean isAlive() {
         return isAlive;
-    }
-
-    public boolean isHorizontal() {
-        // The boat is horizontal if two consecutive positions (full part) aren't the same
-        return (int) position1 != (int) position2;
     }
 }
