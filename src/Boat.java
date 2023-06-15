@@ -39,22 +39,6 @@ public class Boat {
     private final Vector<Float> positions = new Vector<>();
 
     /**
-     * Constructor for the <code>Boat</code> class
-     * @param name Name of the boat
-     * @param size Size of the boat
-     * @param position1 First position of the boat, can be at bottom-right corner of second position (order doesn't matter)
-     * @param position2 Second position of the boat
-     */
-    public Boat(String name, int size, float position1, float position2) {
-        this.name = name;
-        this.size = size;
-        this.position1 = position1;
-        this.position2 = position2;
-
-        calculatePositions();
-    }
-
-    /**
      * Constructor for <code>Boat</code> class without the size parameter
      * @param name Name of the boat
      * @param position1 First position of the boat, can be at bottom-right corner of second position (order doesn't matter)
@@ -109,7 +93,11 @@ public class Boat {
         return isHit;
     }
 
-    public boolean isAlive() {
-        return isAlive;
+    public boolean isDead() {
+        return !isAlive;
+    }
+
+    public String getName() {
+        return name;
     }
 }

@@ -46,7 +46,7 @@ public class Grid {
         for (int i = 0; i < this.height; i++) {
             System.out.print(((i + 1) / 10 > 0 ? "" : " ") + (i + 1) + " ");
             for (int j = 0; j < this.width; j++) {
-                System.out.print(" " + (ocean[j][i].equals("~") ? ConsoleColors.ANSI_RESET + ConsoleColors.ANSI_BLUE : ConsoleColors.ANSI_RESET + ConsoleColors.ANSI_YELLOW) + ocean[j][i] + " ");
+                System.out.print(" " + ConsoleColors.ANSI_RESET +  (ocean[j][i].equals("~") ? ConsoleColors.ANSI_BLUE : ocean[j][i].equals("*") || ocean[j][i].equals("Ø") ? ConsoleColors.ANSI_RED : ConsoleColors.ANSI_YELLOW) + ocean[j][i] + " ");
             }
             System.out.println(ConsoleColors.ANSI_RESET);
         }
@@ -69,5 +69,14 @@ public class Grid {
                 this.ocean[(int) Math.floor(boatPosition) - 1][Math.round(boatPosition % 1 * 100) - 1] = String.valueOf(boatsCharacters[i]);
             }
         }
+    }
+
+    /**
+     * Change the grid to display shots
+     * @param position The position where the shot is
+     * @param hit If the shot hit a boat or not
+     */
+    public void shoot (float position, boolean hit) {
+        this.ocean[(int) Math.floor(position) - 1][Math.round(position % 1 * 100) - 1] = String.valueOf(hit ? '*' : 'Ø');
     }
 }
